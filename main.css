@@ -96,7 +96,7 @@ h3 {
 
 #compare {
   position: relative;
-  height: 50rem;
+  height: 55rem;
 }
 
 #grabber {
@@ -118,7 +118,7 @@ h3 {
 
 #sim .card,
 #diff .card {
-  height: 45rem;
+  height: 50rem;
 }
 
 #diff {
