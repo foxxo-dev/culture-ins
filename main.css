@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  min-height: 100vh;
+  font-family: 'Inter', Inter, 'Roboto', sans-serif;
+  background-color: #f0f0f0;
+}
+
+p {
+  max-width: 40pc;
+  opacity: 0.8;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+button {
+  background: black;
+  color: #f0f0f0;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+.light {
+  font-weight: 300;
+}
+#landing {
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+}
+
+#landing > * {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+img {
+  max-width: 30rem;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0.25rem;
+  filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.1));
+}
+
+#landing h1 {
+  font-size: 4rem;
+  max-width: 48pc;
+  font-weight: 900;
+}
+
+#landing button {
+  max-width: 10rem;
+}
+
+section:not(#landing) {
+  max-width: 90vw;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+.grid-3 {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(20rem, 1fr));
+}
+
+.card {
+  background: white;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+}
+.card img {
+  max-width: 100%;
+  border-radius: 0.25rem;
+}
+
+h3 {
+  font-size: 2.5rem;
+}
+
+#compare {
+  position: relative;
+  height: 50rem;
+}
+
+#grabber {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1rem;
+  height: 100%;
+  cursor: grab;
+  background: black;
+}
+#sim,
+#diff {
+  position: absolute;
+  inset: 0;
+  background: #f0f0f0;
+  user-select: none;
+}
+
+#sim .card,
+#diff .card {
+  height: 45rem;
+}
+
+#diff {
+  mask-image: linear-gradient(to right, transparent 100%, black 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 100%, black 100%);
+}
+
+#grabber {
+  position: absolute;
+  width: 10px;
+  height: 100%;
+  background-color: black;
+  cursor: ew-resize;
+  z-index: 200;
+  left: 100%;
+  border-radius: 1000vw;
+}
+
+#grabber > #grabber-circle {
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  background-color: white;
+  border-radius: 1000vw;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  outline: 10px solid black;
+}
+
+#grabber-circle > #grabber-img {
+  background-image: url('./drag.png');
+  background-size: cover;
+  height: 75%;
+  aspect-ratio: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  /* filter: invert(1); */
+}
+
+#grabber[data-not-touched='true'] {
+  animation: shake 2s infinite;
+}
+
+hr {
+  border: none;
+  background: black;
+  height: 2px;
+  margin: 1rem 0;
+  border-radius: 1000vw;
+  opacity: 0.8;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  5% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  10% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  15% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  20% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  25% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  30% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  35% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  40% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  45% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  50% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
